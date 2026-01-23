@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run start-windows:*)",
+      "Bash(npm install:*)"
+    ]
+  }
+}
