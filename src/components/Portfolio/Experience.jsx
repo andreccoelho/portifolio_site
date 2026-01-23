@@ -109,6 +109,10 @@ const ProjectsGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ProjectCard = styled.div`
@@ -141,6 +145,10 @@ const ProjectsGridExpanded = styled.div`
   gap: 1.5rem;
   padding-top: 1rem;
   border-top: 1px solid #333;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ProjectCardExpanded = styled.a`
