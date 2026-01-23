@@ -112,7 +112,7 @@ const About = () => {
           <span className="highlight"> Análise de Dados</span>. Atualmente estagiário no
           <strong> BNDES</strong>, atuando com Business Intelligence, automação e
           manipulação de grandes volumes de dados. Especialista na criação de interfaces
-          modernas com <strong>React</strong> e <strong>TypeScript</strong>, além de possuir
+          modernas com <strong>React</strong> e <strong>JavaScript</strong>, além de possuir
           sólida base em infraestrutura de redes e bancos de dados SQL.
         </AboutText>
         <Highlights>

@@ -7,7 +7,7 @@ Nova Iguaçu, Rio de Janeiro, Brasil Contato: +55 21 97413-1453 | andreccoelho20
 
 
 Resumo Profissional
-Estudante de Engenharia de Computação (7º período) com experiência prática em desenvolvimento Front-End e análise de dados. Atualmente estagiário no BNDES, atuando com Business Intelligence, automação e manipulação de grandes volumes de dados. Especialista na criação de interfaces modernas com React e TypeScript, além de possuir sólida base em infraestrutura de redes e bancos de dados SQL.
+Estudante de Engenharia de Computação (7º período) com experiência prática em desenvolvimento Front-End e análise de dados. Atualmente estagiário no BNDES, atuando com Business Intelligence, automação e manipulação de grandes volumes de dados. Especialista na criação de interfaces modernas com React e JavaScript, além de possuir sólida base em infraestrutura de redes e bancos de dados SQL.
 
 
 
