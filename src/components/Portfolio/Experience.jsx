@@ -159,6 +159,7 @@ const ProjectCardExpanded = styled.a`
   overflow: hidden;
   transition: all 0.3s ease;
   text-decoration: none;
+  position: relative;
 
   &:hover {
     border-color: #00b74b;
@@ -168,6 +169,26 @@ const ProjectCardExpanded = styled.a`
 
   &:hover .image-container::after {
     opacity: 0.3;
+  }
+`;
+
+const FeaturedBadge = styled.span`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #d4af37, #f4cf47);
+  color: #1a1b1f;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  &::before {
+    content: '★';
   }
 `;
 
@@ -268,6 +289,27 @@ const DescriptionItem = styled.li`
 
 const freelanceProjects = [
   {
+    name: 'New Pharm',
+    image: '/imagens/newpharm.png',
+    link: 'https://newpharmcompany.com',
+    category: 'Site Institucional',
+    featured: true
+  },
+  {
+    name: 'CH Construtora',
+    image: '/imagens/chconstrutora.png',
+    link: 'https://chconstrutorarj.com.br',
+    category: 'Site Institucional',
+    featured: true
+  },
+  {
+    name: 'Charlote Rio',
+    image: '/imagens/charlote.png',
+    link: 'https://charloterio.com.br',
+    category: 'Solução Digital',
+    featured: true
+  },
+  {
     name: 'Casarão Lustres',
     image: '/imagens/casarao.png',
     link: 'https://www.casaraolustres.com.br',
@@ -302,24 +344,6 @@ const freelanceProjects = [
     image: '/imagens/brazilroute.png',
     link: 'https://brazilroute.com.br',
     category: 'Site Institucional'
-  },
-  {
-    name: 'New Pharm',
-    image: '/imagens/newpharm.png',
-    link: 'https://newpharmcompany.com',
-    category: 'Site Institucional'
-  },
-  {
-    name: 'CH Construtora',
-    image: '/imagens/chconstrutora.png',
-    link: 'https://chconstrutorarj.com.br',
-    category: 'Site Institucional'
-  },
-  {
-    name: 'Charlote Rio',
-    image: '/imagens/charlote.png',
-    link: 'https://charloterio.com.br',
-    category: 'Solução Digital'
   }
 ];
 
@@ -390,10 +414,12 @@ const Experience = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
+                      $featured={project.featured}
                       onClick={(e) => {
                         e.stopPropagation();
                       }}
                     >
+                      {project.featured && <FeaturedBadge>Destaque</FeaturedBadge>}
                       <ImageContainer className="image-container">
                       <ProjectImage src={project.image} alt={project.name} />
                     </ImageContainer>
