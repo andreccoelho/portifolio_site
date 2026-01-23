@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(npm run start-windows:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(git restore:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run:*)"
     ]
   }
 }

@@ -35,6 +35,9 @@ const SkillsGrid = styled.div`
 `;
 
 const SkillCategory = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: #1a1b1f;
   padding: 2rem;
   border-radius: 12px;
@@ -80,6 +83,7 @@ const SkillTags = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  justify-content: center;
 `;
 
 const SkillTag = styled.span`

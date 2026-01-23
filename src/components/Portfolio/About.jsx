@@ -108,8 +108,8 @@ const About = () => {
         </ProfileImageWrapper>
         <AboutText>
           Estudante de <strong>Engenharia de Computação</strong> (7º período) no IBMEC
-          com experiência prática em <span className="highlight">desenvolvimento Front-End</span> e
-          <span className="highlight"> análise de dados</span>. Atualmente estagiário no
+          com experiência prática em <span className="highlight">Desenvolvimento Front-End</span> e
+          <span className="highlight"> Análise de Dados</span>. Atualmente estagiário no
           <strong> BNDES</strong>, atuando com Business Intelligence, automação e
           manipulação de grandes volumes de dados. Especialista na criação de interfaces
           modernas com <strong>React</strong> e <strong>TypeScript</strong>, além de possuir

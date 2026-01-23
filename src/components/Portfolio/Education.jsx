@@ -87,8 +87,8 @@ const CardDate = styled.span`
   font-size: 0.85rem;
   color: #a0a0a0;
   background: #1a1b1f;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
 `;
 
 const CertificationsList = styled.div`

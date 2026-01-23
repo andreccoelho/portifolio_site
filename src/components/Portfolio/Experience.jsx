@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const ExperienceSection = styled.section`
@@ -54,6 +55,7 @@ const ExperienceItem = styled.div`
   border-radius: 12px;
   border: 1px solid #333;
   transition: all 0.3s ease;
+  cursor: ${props => props.$clickable ? 'pointer' : 'default'};
 
   &:hover {
     border-color: #00b74b;
@@ -76,6 +78,135 @@ const ExperienceItem = styled.div`
     &::before {
       left: -2rem;
     }
+  }
+`;
+
+const ExpandIcon = styled.span`
+  position: absolute;
+  right: 1.5rem;
+  top: 2rem;
+  font-size: 1.2rem;
+  color: #00b74b;
+  transition: transform 0.3s ease;
+  transform: ${props => props.$expanded ? 'rotate(180deg)' : 'rotate(0deg)'};
+`;
+
+const ProjectsContainer = styled.div`
+  display: grid;
+  grid-template-rows: ${props => props.$expanded ? '1fr' : '0fr'};
+  overflow: hidden;
+  transition: grid-template-rows 0.4s ease, margin-top 0.4s ease, opacity 0.3s ease;
+  margin-top: ${props => props.$expanded ? '1.5rem' : '0'};
+  opacity: ${props => props.$expanded ? '1' : '0'};
+
+  & > div {
+    overflow: hidden;
+  }
+`;
+
+const ProjectsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+`;
+
+const ProjectCard = styled.div`
+  background: #1a1b1f;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #00b74b;
+  }
+`;
+
+const ProjectTitle = styled.h4`
+  font-size: 1rem;
+  color: #00b74b;
+  margin-bottom: 0.5rem;
+`;
+
+const ProjectDesc = styled.p`
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  line-height: 1.5;
+`;
+
+const ProjectsGridExpanded = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+`;
+
+const ProjectCardExpanded = styled.a`
+  display: block;
+  background: #1a1b1f;
+  border-radius: 12px;
+  border: 1px solid #333;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+    border-color: #00b74b;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 183, 75, 0.1);
+  }
+
+  &:hover .image-container::after {
+    opacity: 0.3;
+  }
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 160px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+`;
+
+const ProjectImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid #333;
+`;
+
+const ProjectInfo = styled.div`
+  padding: 1rem;
+`;
+
+const ProjectName = styled.h4`
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+`;
+
+const ProjectLink = styled.span`
+  font-size: 0.8rem;
+  color: #00b74b;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  &::after {
+    content: '↗';
   }
 `;
 
@@ -126,44 +257,77 @@ const DescriptionItem = styled.li`
   }
 `;
 
-const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-`;
 
-const ProjectCard = styled.div`
-  background: #1a1b1f;
-  padding: 1.25rem;
-  border-radius: 8px;
-  border: 1px solid #333;
-  transition: all 0.3s ease;
-
-  &:hover {
-    border-color: #00b74b;
+const freelanceProjects = [
+  {
+    name: 'Casarão Lustres',
+    image: '/imagens/casarao.png',
+    link: 'https://www.casaraolustres.com.br',
+    category: 'E-commerce'
+  },
+  {
+    name: 'Riû',
+    image: '/imagens/riu.png',
+    link: 'https://useriu.com.br',
+    category: 'E-commerce'
+  },
+  {
+    name: 'Carpe',
+    image: '/imagens/carpe.png',
+    link: 'https://usecarpe.com.br',
+    category: 'E-commerce'
+  },
+  {
+    name: 'PVR Capital',
+    image: '/imagens/pvr.png',
+    link: 'https://pvr.capital',
+    category: 'Site Institucional'
+  },
+  {
+    name: 'Pilotage',
+    image: '/imagens/pilotage.png',
+    link: 'https://pilotage.com.br',
+    category: 'Site Institucional'
+  },
+  {
+    name: 'BrazilRoute',
+    image: '/imagens/brazilroute.png',
+    link: 'https://brazilroute.com.br',
+    category: 'Site Institucional'
+  },
+  {
+    name: 'New Pharm',
+    image: '/imagens/newpharm.png',
+    link: 'https://newpharmcompany.com',
+    category: 'Site Institucional'
+  },
+  {
+    name: 'CH Construtora',
+    image: '/imagens/chconstrutora.png',
+    link: 'https://chconstrutorarj.com.br',
+    category: 'Site Institucional'
+  },
+  {
+    name: 'Charlote Rio',
+    image: '/imagens/charlote.png',
+    link: 'https://charloterio.com.br',
+    category: 'Solução Digital'
   }
-`;
-
-const ProjectTitle = styled.h4`
-  font-size: 1rem;
-  color: #00b74b;
-  margin-bottom: 0.5rem;
-`;
-
-const ProjectDesc = styled.p`
-  font-size: 0.9rem;
-  color: #a0a0a0;
-  line-height: 1.5;
-`;
+];
 
 const Experience = () => {
+  const [expandedItem, setExpandedItem] = useState(null);
+
+  const toggleExpand = (index) => {
+    setExpandedItem(expandedItem === index ? null : index);
+  };
+
   return (
     <ExperienceSection id="experiencia">
       <Container>
         <SectionTitle>Experiência Profissional</SectionTitle>
         <Timeline>
-          <ExperienceItem>
+          <ExperienceItem $clickable={false}>
             <JobHeader>
               <Company>Banco Nacional de Desenvolvimento Econômico e Social (BNDES)</Company>
               <Role>Estagiário de Dados e Relatórios Gerenciais</Role>
@@ -182,7 +346,8 @@ const Experience = () => {
             </Description>
           </ExperienceItem>
 
-          <ExperienceItem>
+          <ExperienceItem $clickable={true} onClick={() => toggleExpand(1)}>
+            <ExpandIcon $expanded={expandedItem === 1}>▼</ExpandIcon>
             <JobHeader>
               <Company>Desenvolvedor Web & Designer (Freelancer)</Company>
               <Role>Projetos Diversos</Role>
@@ -208,6 +373,31 @@ const Experience = () => {
                 </ProjectDesc>
               </ProjectCard>
             </ProjectsGrid>
+            <ProjectsContainer $expanded={expandedItem === 1}>
+              <div>
+                <ProjectsGridExpanded>
+                  {freelanceProjects.map((project, index) => (
+                    <ProjectCardExpanded
+                      key={index}
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
+                      <ImageContainer className="image-container">
+                      <ProjectImage src={project.image} alt={project.name} />
+                    </ImageContainer>
+                      <ProjectInfo>
+                        <ProjectName>{project.name}</ProjectName>
+                        <ProjectLink>Visitar site</ProjectLink>
+                      </ProjectInfo>
+                    </ProjectCardExpanded>
+                  ))}
+                </ProjectsGridExpanded>
+              </div>
+            </ProjectsContainer>
           </ExperienceItem>
         </Timeline>
       </Container>

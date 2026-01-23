@@ -79,7 +79,7 @@ const ContactLabel = styled.span`
 `;
 
 const ContactValue = styled.span`
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #ffffff;
   font-weight: 500;
 `;
