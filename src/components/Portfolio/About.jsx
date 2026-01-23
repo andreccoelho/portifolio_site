@@ -107,7 +107,7 @@ const About = () => {
           <ProfileImage src="imagens/eu.jpeg" alt="André Costa Coelho" />
         </ProfileImageWrapper>
         <AboutText>
-          Estudante de <strong>Engenharia de Computação</strong> (7º período) no IBMEC
+          Estudante de <strong>Engenharia de Computação</strong> (8º período) no IBMEC
           com experiência prática em <span className="highlight">Desenvolvimento Front-End</span> e
           <span className="highlight"> Análise de Dados</span>. Atualmente estagiário no
           <strong> BNDES</strong>, atuando com Business Intelligence, automação e
@@ -117,7 +117,7 @@ const About = () => {
         </AboutText>
         <Highlights>
           <HighlightItem>
-            <HighlightNumber>7º</HighlightNumber>
+            <HighlightNumber>8º</HighlightNumber>
             <HighlightLabel>Período de Eng. Computação</HighlightLabel>
           </HighlightItem>
           <HighlightItem>

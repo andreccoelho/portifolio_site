@@ -150,7 +150,7 @@ const Education = () => {
             </IconWrapper>
             <CardTitle>Engenharia de Computação</CardTitle>
             <CardSubtitle>IBMEC Barra da Tijuca</CardSubtitle>
-            <CardDate>Previsão: 2026.2 (7º período atual)</CardDate>
+            <CardDate>Previsão: 2026.2 (8º período atual)</CardDate>
           </Card>
 
           <Card>
