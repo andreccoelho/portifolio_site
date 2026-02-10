@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { HiOutlineAcademicCap, HiOutlineBadgeCheck, HiOutlineTranslate } from 'react-icons/hi';
+import { HiOutlineAcademicCap, HiOutlineBadgeCheck, HiOutlineTranslate, HiOutlineDocumentText } from 'react-icons/hi';
 
 const EducationSection = styled.section`
   padding: 6rem 2rem;
@@ -138,6 +138,19 @@ const LevelDot = styled.span`
   box-shadow: ${props => props.$filled ? '0 0 6px rgba(0, 183, 75, 0.6)' : 'none'};
 `;
 
+const ArticleLink = styled.a`
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #00b74b;
+  }
+`;
+
 const Education = () => {
   return (
     <EducationSection id="formacao">
@@ -151,6 +164,27 @@ const Education = () => {
             <CardTitle>Engenharia de Computação</CardTitle>
             <CardSubtitle>IBMEC Barra da Tijuca</CardSubtitle>
             <CardDate>Previsão: 2026.2 (8º período atual)</CardDate>
+          </Card>
+
+          <Card>
+            <IconWrapper>
+              <HiOutlineDocumentText className="neon-icon" />
+            </IconWrapper>
+            <CardTitle>Artigos Publicados</CardTitle>
+            <CertificationsList>
+              <CertGroup>
+                <CertGroupTitle>XVII CBIC (2025)</CertGroupTitle>
+                <ArticleLink href="https://sbia.org.br/eventos/cbic_2025/cbic2025-1191901/" target="_blank" rel="noopener noreferrer">
+                  Investigating image pre-processing techniques to enhance Brazilian license plate recognition
+                </ArticleLink>
+              </CertGroup>
+              <CertGroup>
+                <CertGroupTitle>SBrT2025</CertGroupTitle>
+                <ArticleLink href="https://biblioteca.sbrt.org.br/articles/4984" target="_blank" rel="noopener noreferrer">
+                  Comparative Performance Analysis of LoRa and WiFi Technologies for CanSat Communication Systems
+                </ArticleLink>
+              </CertGroup>
+            </CertificationsList>
           </Card>
 
           <Card>
@@ -178,20 +212,22 @@ const Education = () => {
             <CertificationsList>
               <CertGroup>
                 <CertGroupTitle>Inglês</CertGroupTitle>
-                <CertText>Nível Intermediário/Master – Cultura Inglesa</CertText>
+                <CertText>Nível Avançado/Master – Cultura Inglesa</CertText>
                 <LanguageBadge>
                   <span style={{ color: '#a0a0a0', fontSize: '0.85rem' }}>Proficiência:</span>
                   <LanguageLevel>
                     <LevelDot $filled />
                     <LevelDot $filled />
                     <LevelDot $filled />
-                    <LevelDot />
+                    <LevelDot $filled />
                     <LevelDot />
                   </LanguageLevel>
                 </LanguageBadge>
               </CertGroup>
             </CertificationsList>
           </Card>
+
+
         </Grid>
       </Container>
     </EducationSection>
