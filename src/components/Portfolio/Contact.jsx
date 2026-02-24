@@ -149,12 +149,12 @@ const Contact = () => {
             <ContactValue>andreccoelho2004@gmail.com</ContactValue>
           </ContactCard>
 
-          <ContactCard href="tel:+5521974131453">
+          <ContactCard href="tel:+5521974131543">
             <IconWrapper>
               <HiOutlinePhone className="neon-icon" />
             </IconWrapper>
             <ContactLabel>Telefone</ContactLabel>
-            <ContactValue>+55 21 97413-1453</ContactValue>
+            <ContactValue>+55 21 97413-1543</ContactValue>
           </ContactCard>
 
           <ContactCard href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer">
